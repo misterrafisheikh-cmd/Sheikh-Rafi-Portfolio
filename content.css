@@ -1,0 +1,190 @@
+/* --- Content Page Styles --- */
+    body {
+      background-color: #022507;
+      color: white;
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+   .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background: rgba(8, 32, 23, 0.95);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      font-size: 25px;
+
+    }
+    
+
+
+    .navbar a {
+      color: #fff;
+      text-decoration: none;
+      margin-left: 1.5rem;
+      transition: color 0.3s;
+    }
+
+    .navbar a:hover {
+      color: #00e0ff;
+    }
+
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  padding: 40px;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.video-card {
+  background: rgb(111, 145, 121);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.video-card:hover {
+  transform: translateY(-5px);
+}
+
+.hover-video {
+  width: 100%;
+  height: auto;
+  display: block;
+  cursor: pointer;
+}
+
+.caption {
+  padding: 15px;
+}
+
+.caption h3 {
+  margin: 0 0 10px;
+  font-size: 18px;
+  color: #333;
+}
+
+.caption p {
+  font-size: 14px;
+  color: #666;
+}
+
+.caption button {
+  margin-top: 10px;
+  padding: 8px 12px;
+  background: #0073ff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.caption button:hover {
+  background: #005ad6;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 1024px) {
+  .video-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .video-grid {
+    grid-template-columns: 1fr;
+  }
+}
+/* --- Custom Animated Cursor --- */
+/* Hide default cursor */
+body {
+  cursor: none;
+}
+
+/* Cursor wrapper */
+.cursor-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* Animated glowing circle */
+.cursor-circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 60px;
+  height: 60px;
+  border: 2px solid #00eaff;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  animation: rotate 3s linear infinite, pulse 2s ease-in-out infinite;
+  box-shadow: 0 0 15px #00eaff, 0 0 40px #00eaff33;
+}
+
+/* Hand emoji at center */
+.cursor-hand {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 28px;
+  transform: translate(-50%, -50%);
+  user-select: none;
+}
+
+/* Circle rotating animation */
+@keyframes rotate {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+/* Circle pulsing (expanding slightly) */
+@keyframes pulse {
+  0%, 100% {
+    box-shadow: 0 0 10px #00eaff, 0 0 25px #00eaff55;
+    opacity: 1;
+  }
+  50% {
+    box-shadow: 0 0 25px #00eaff, 0 0 50px #00eaff88;
+    opacity: 0.8;
+  }
+}
+
+/* Hover reaction */
+a:hover ~ .cursor-container .cursor-circle,
+button:hover ~ .cursor-container .cursor-circle,
+.project:hover ~ .cursor-container .cursor-circle {
+  border-color: #ff00aa;
+  box-shadow: 0 0 25px #ff00aa, 0 0 60px #ff00aa55;
+}
+
+/* Click effect */
+.cursor-container.active .cursor-circle {
+  transform: translate(-50%, -50%) scale(0.8);
+}
+.cursor-container.active .cursor-hand {
+  transform: translate(-50%, -50%) scale(0.8);
+}
